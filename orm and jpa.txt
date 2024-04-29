@@ -1,0 +1,26 @@
+ORM
+ORM WILL CONNECT TO JPA
+OBJECT RELATIONAL MAPPING (ORM)
+
+We try to connect object world(classes) and relational world(tables) and map the attributes(columns)
+Question arises how will we implement that?
+we have different ORM tools: Hibernate, toplink, eclipse link
+
+Another issue comes up when we wamt to change the Hibernate to something else
+So is not there another thing that we can do so that we do not need to change
+too many code?
+
+That specification is called Java Persistence API (JPA). With this we implement
+a common specification so that when we want to swith from Hibernate to toplink for example,
+we would not have to change so much of our code
+
+Hibernate implements JPA by the way.
+
+Spring ORM, also is a common specifiation and works well with spring. This also
+implements JPA.
+
+BUT if we try to use hibernate and spring orm we will need to write too many code
+and that can be simplified with Spring Data JPA.
+
+
+

@@ -1,17 +1,21 @@
 package com.example.springbootrest.repository;
 
  import com.example.springbootrest.model.JobPost;
+ import org.springframework.data.jpa.repository.JpaRepository;
  import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
+// changed the repository structure to Spring Data JPA; using PostgreSQL
+
 @Repository
-public class JobRepo {
+public interface JobRepo extends JpaRepository<JobPost,Integer> {
 
     List<JobPost> jobs = new ArrayList<>();
 
-    public JobRepo() {
+/*    public JobRepo() {
 
         // Java Developer Job Post
         jobs.add(new JobPost(1, "Java Developer", "Must have good experience in core Java and advanced Java", 2,
@@ -105,9 +109,11 @@ public class JobRepo {
                 .add(new JobPost(20, "IT Project Manager", "Lead and manage IT projects from initiation to completion",
                         6, List.of("Project Management", "Agile", "Scrum", "Risk Management")));
 
-    }
+    }*/
 
-    public List<JobPost> getAllJobs() {
+
+
+/*    public List<JobPost> getAllJobs() {
 
         return jobs;
     }
@@ -144,5 +150,5 @@ public class JobRepo {
             if (jobPost.getPostId()==postId){
                 jobs.remove(jobPost);            }
         }
-    }
+    }*/
 }
