@@ -15,6 +15,11 @@ public interface JobRepo extends JpaRepository<JobPost,Integer> {
 
     List<JobPost> jobs = new ArrayList<>();
 
+    //if a method we are going to use in repo is not specified in JPA we can specify
+        //using DSL
+
+    List<JobPost> findByPostProfileContainingOrPostDescContaining(String postProfile,String postDesc);
+
 /*    public JobRepo() {
 
         // Java Developer Job Post
