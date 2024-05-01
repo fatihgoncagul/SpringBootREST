@@ -36,7 +36,7 @@ public class JobRestController {
         return service.getJob(postId);
         //server to client
     }
-    @PostMapping(path="jobPost", consumes = {"application/xml"})//we specify that it needs to take xml data. by default its json btw
+    @PostMapping(path="jobPost")//"path="jobPost", consumes = {"application/xml"}"we specify that it needs to take xml data. by default its json btw
     public JobPost addJob(@RequestBody JobPost jobPost){ // when you want to return data we use @ResponseBody;
         //when we want to send data or as a server if you want to accept data, we use @RequestBody; remember that this annotation takes json data and turns it into this parameter's object type so that spring can deal with it
         service.addJob(jobPost);
@@ -58,7 +58,7 @@ public class JobRestController {
         return "deleted";
     }
 
-    @GetMapping("jobPosts/keyword/{keyword]")
+    @GetMapping("jobPosts/keyword/{keyword}")
     public List<JobPost> searchByKeyWord(@PathVariable("keyword") String keyword){
         return service.search(keyword);
 
