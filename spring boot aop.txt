@@ -1,0 +1,89 @@
+SPRING BOOT AOP (Aspect Oriented Programming)
+AOP is not a replacement for OOP.
+AOP complements OOP
+What are trying to solve with AOP?
+We are trying to resolve "Cross Cutting Concerns"
+
+
+We put log statements to track errors when necessary
+for ex in service:
+    public void updateJob(JobPost jobPost) {
+        //logg
+        //sec
+        //validation
+        //exception
+        //too many lines of code needed
+        repo.save(jobPost);
+    }
+
+well, how can we resolve this complex code
+-> creating a seperate class where we do ALL those processings (CROSS CUTTING CONCERNS)
+-> but we wanna call those processing for every method update, add and delete etc
+-> so these are our cross cutting concerns
+-> what if we did not have to call it?
+-> we can do it with AOP
+
+the idea is how can we keep our cross cutting concerns in a seperate class and someone should
+call it for us
+we can do this for loggin cross-cutting concern, exception cross-cutting concern, performance monitoring
+
+
+after understanding this we need to look at some terms and concepts (theoratical stuff)
+
+Aspect:A modularization of a concern that cuts accross multiple classes.
+Transaction management is a good example of a crosscutting concern in enterprise
+java apps. In Spring AOP, aspects are implemented by using regular classes(the schema based approach)
+or regular class annotated with @Aspect annotation.
+
+Join point: A point during the execution of a program, such as the execution of a method or the
+handling of an exception. In Spring AOP, a join point always represents a method execution
+
+Advice: Action taken by an aspect at a particular join point. Different types of advice
+include "aroun", "before" and "after" advice. Many AOP frameworks, including Spring,
+model an advice as an interceptor and maintain a chain of interceptors around the join
+point
+
+Pointcut: A predicate that matches join points. Advice is associated with a pointcut
+experssion and runs at any join point matched by the pointcut (for example, the execution
+of a method with a certain name). The concept of join points as matched by pointcut expressions
+is central to AOP, and Spring uses Aspectj pointcut expression by default
+
+Introduction: Declaring additional methods or fields on behalf of a type. Spring AOP
+lets you introduce new interfaces (and a corresponding implementatişon) to any
+advised object. For example, you could use an introduction to make a bean implement an
+"IsModified" interface, to simplify caching
+
+Target object: An object being advised by one or more aspects. Also referred
+to as the "advised object". Since Spring AOP is implemented by using runtime proxies,
+this object is always a proxied object
+
+AOP proxy: An object created by the AOP framework in order to implement aspect contracts
+(advice method executions and so on). In the Spring Framework, an AOP proxy is a
+JDK dynamic proxy or a CGLIB proxy
+
+Weaving: Linking aspects with other application types or objects to create an advised object.
+This can be done at compile time (using the Aspectj compiler, for example), load time, or at runtime.
+Spring AOP, like other pure Java AOP frameworks, performs weaving at runtime
+
+Spring AOP includes following types of advice:
+
+Before advice: Advice that runs before a join point but that does not
+have the ability to prevent execution flow proceeding to the join point
+(unless it throws an exception).
+
+After returning advice: Advice to be run after a join point
+completes normally (for example, if
+a method returns without throwing an exception).
+
+After throwing advice: Advice to be run if a method exits by
+throwing an exception.
+
+After (finally) advice: Advice to be run regardless of the means by which
+a join point exits (normal or exceptional return).
+
+Around advice: Advice that surrounds a join point such as a method invocation.
+This is the most powerful kind of advice. Around advice can perform custom
+behavior before and after the method invocation. It is also responsible
+for choosing whether to proceed to the join point or to shortcut the
+advised method execution by returning its own return value or throwing
+an exception.

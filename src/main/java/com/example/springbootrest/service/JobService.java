@@ -5,7 +5,7 @@ import com.example.springbootrest.model.JobPost;
 import com.example.springbootrest.repository.JobRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +34,11 @@ public class JobService {
 
 
     public void updateJob(JobPost jobPost) {
+        //logg
+        //sec
+        //validation
+        //exception
+        //too many lines of code needed
         repo.save(jobPost);
     }
 

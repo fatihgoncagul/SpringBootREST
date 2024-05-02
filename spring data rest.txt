@@ -1,0 +1,17 @@
+SPRING DATA REST
+If we talk about controller - service - repository layers and spring data jpa
+jpa does some of the work with us.
+For now service layer does not do too much we just redirect the requests from controller to repo
+So lets forget the service layer.
+Then what if we can remove the controller layer too?
+And let something else do the job for us.
+
+It is possible with SPRING DATA REST
+it adds url links to our json data and controller functions
+it does not change the url for example
+if we want to send  delete request to: localhost:8080/jobPosts/10
+
+IF WE WANT TO JUST BUILD RESTFUL WEB-SERVICE AND
+IF WE HAVE JPA REPOSITORY LAYER ALREADY
+WE SIMPLY USE SPRING DATA REST
+
