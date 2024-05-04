@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000") // it resolves the cross origin issue between frontend-backend; basically we allow this frontend to send request
+@CrossOrigin(origins = "http://localhost:3000") // it resolves the cross origin issue between frontend-backend; basically we allow this frontend to send request cause spring says u cant acces another server from outside world
+//we can allow for every endpoint by only writing crossorigin or we can create configuration file
 public class JobRestController {
 
     @Autowired
